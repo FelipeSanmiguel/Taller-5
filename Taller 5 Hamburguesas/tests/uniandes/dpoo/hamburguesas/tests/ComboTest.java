@@ -53,6 +53,14 @@ public class ComboTest {
     	assertEquals(2700, combo1.getPrecio( ), "El preccio del combo no es el esperado." );
     }
     
+    @Test
+    void probarFactura() {
+    	System.out.println(combo1.generarTextoFactura());
+    	String factura = "Combo " + combo1.getNombre( ) + "\n"+" Descuento: " + "0.1" + "\n"+"            " + combo1.getPrecio( ) + "\n";
+    	assertEquals(factura, combo1.generarTextoFactura(), "El texto de la factura combo no es el esperado." );
+
+    }
+    
     
     
 }
