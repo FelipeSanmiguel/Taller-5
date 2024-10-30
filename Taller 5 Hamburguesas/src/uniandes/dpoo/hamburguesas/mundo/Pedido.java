@@ -95,7 +95,7 @@ public class Pedido
      * Retorna el precio de los productos del pedido
      * @return La sumatoria de los precios de los productos
      */
-    public int getPrecioNetoPedido( )
+    private int getPrecioNetoPedido( )
     {
         int valor = 0;
         for( Producto item : productos )
@@ -109,7 +109,7 @@ public class Pedido
      * Retorna el valor del IVA del producto, que corresponde al 19% del precio neto
      * @return
      */
-    public int getPrecioIVAPedido( )
+    private int getPrecioIVAPedido( )
     {
         return ( int ) ( getPrecioNetoPedido( ) * IVA );
     }

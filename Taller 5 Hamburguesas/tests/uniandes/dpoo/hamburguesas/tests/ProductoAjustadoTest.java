@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import uniandes.dpoo.hamburguesas.mundo.Ingrediente;
 import uniandes.dpoo.hamburguesas.mundo.ProductoAjustado;
 import uniandes.dpoo.hamburguesas.mundo.ProductoMenu;
 
@@ -42,7 +43,18 @@ public class ProductoAjustadoTest {
     @Test
     void testPrecioConIngredientes( )
     {
-        assertEquals( 1000, productoAjustado1.getPrecio(), "El costo adicional del ingrediente no es el esperado." );
+    	Ingrediente ingrediente1 = new Ingrediente( "tomate", 1000 );
+    	productoAjustado1.agregarIngrediente(ingrediente1);
+        assertEquals( 2000, productoAjustado1.getPrecio(), "El costo adicional del ingrediente no es el esperado." );
     }
+    
+    @Test
+    void testGenerarPrecioFactura( )
+    {
+    	Ingrediente ingrediente1 = new Ingrediente( "tomate", 1000 );
+    	productoAjustado1.agregarIngrediente(ingrediente1);
+        assertEquals( "camaron    +tomate                1000            2000", productoAjustado1.generarTextoFactura(), "El costo adicional del ingrediente no es el esperado." );
+    }
+
 
 }

@@ -52,7 +52,23 @@ public class ProductoAjustado implements Producto
     	
         return precio;
     }
-
+    
+    
+    /* 
+     * Agredados para poder tener donde meter los ingrediente a quitar y agregar ----------------------------------
+     * */
+    public void agregarIngrediente(Ingrediente ingrediente) {
+    	agregados.add(ingrediente);
+    }
+    
+    public void quitarIngrediente(Ingrediente ingrediente) {
+    	eliminados.add(ingrediente);
+    }
+    /* 
+     * -------------------------------------------------------------------------------------------------------------
+     * */
+    
+    
     /**
      * Genera el texto que debe aparecer en la factura.
      * 
@@ -62,7 +78,7 @@ public class ProductoAjustado implements Producto
     public String generarTextoFactura( )
     {
         StringBuffer sb = new StringBuffer( );
-        sb.append( productoBase );
+        sb.append( productoBase.getNombre() );
         for( Ingrediente ing : agregados )
         {
             sb.append( "    +" + ing.getNombre( ) );

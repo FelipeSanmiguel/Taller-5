@@ -36,26 +36,22 @@ public class PedidoTest {
     
     @Test
     void probarGetId() throws Exception{
-    	assertEquals( 0, pedido1.getIdPedido( ), "El ID del pedido no es el esperado." );
-    }
+    	Pedido pedido2 = new Pedido("Camilo", "HalloDisc");
+    	Pedido pedido3 = new Pedido("Roberto", "Persona orientada a objetos");
+    	
+    	assertEquals( pedido2.getIdPedido()+1, pedido3.getIdPedido( ), "El ID del pedido no es el esperado." );
+    }	
+    
     
     @Test
     void probarGetNombreCliente() throws Exception{
     	assertEquals( "Juan", pedido1.getNombreCliente( ), "El Nombre del cliente no es el esperado." );
     }
     
-    @Test
-    void probarGetPrecioNet() throws Exception{
-    	pedido1.agregarProducto(producto1);
-    	assertEquals( 1000, pedido1.getPrecioNetoPedido(), "El precio del pedido no es el esperado." );
-    }
-	
-    @Test
-    void probarGetPrecioIVAt() throws Exception{
-    	pedido1.agregarProducto(producto1);
-    	assertEquals( 1000*0.19, pedido1.getPrecioIVAPedido(), "El precio del IVA no es el esperado." );
-    }
     
+    /*
+     * Al no existir una funcion para ver los productos de un envio la prueba de precio tambien sirve para verificar que se añadio el producto
+     */
     @Test
     void probarGetPrecioTot() throws Exception{
     	pedido1.agregarProducto(producto1);
